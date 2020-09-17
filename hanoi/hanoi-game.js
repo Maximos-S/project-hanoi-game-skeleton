@@ -1,9 +1,44 @@
 class HanoiGame {
-  constructor() {}
+  constructor(towers) {
+    this.towers = (() => {
+      if (!towers){
+        return [[3,2,1],[],[]] 
+      } else {
+        return towers
+      }
+    })();
+  }
 
-  isValidMove(startTowerIdx, endTowerIdx) {}
+  isValidMove(startTowerIdx, endTowerIdx) {
+    if (startTowerIdx < 0 || startTowerIdx > 2) {
+      return false
+    }
+    if (this.towers[startTowerIdx].length === 0) {
+      return false;
+    }
+    if (startTowerIdx === endTowerIdx) {
+      return false
+    }
 
-  move(startTowerIdx, endTowerIdx) {}
+    if (this.towers[endTowerIdx].length === 0) {
+      return true;
+    }
+
+    let startTowerLast = this.towers[startTowerIdx].length - 1
+    let endTowerLast = this.towers[endTowerIdx].length - 1
+
+    if (this.towers[startTowerIdx][startTowerLast] < this.towers[endTowerIdx][endTowerLast]) {
+      return true;
+    } else {
+      return false;
+    }
+
+
+  }
+
+  move(startTowerIdx, endTowerIdx) {
+    
+  }
 
   isWon() {}
 
