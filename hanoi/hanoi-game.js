@@ -52,7 +52,15 @@ class HanoiGame {
     }
   }
 
-  isWon() {}
+  isWon() {
+    if (this.towers[1].length === 3) {
+      return true;
+    } else if (this.towers[2].length === 3) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   // the below methods are complete and do not need to be modified
   print() {
